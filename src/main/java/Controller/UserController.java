@@ -24,20 +24,21 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity  getUser(@PathVariable("id") Long id) {
+        UserDto data = userServiceImpl.getById(id);
+        return ResponseEntity.ok(data);
+    }
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<List<UserDto>> getAllUsers() {
-        List<UserDto> data = (List<UserDto>) getAllUsers();
+        List<UserDto> data=(List<UserDto>)userServiceImpl.getAllUsers();
         return ResponseEntity.ok(data);
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity  getUser(@PathVariable("id") Long id) {
-        User data = userServiceImpl.getById(id);
-        return ResponseEntity.ok(data);
-    }
+
 
     @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

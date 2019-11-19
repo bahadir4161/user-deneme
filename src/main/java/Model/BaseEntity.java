@@ -18,5 +18,4 @@ public abstract class BaseEntity implements Serializable {
     private String name;
 
 
-
 }

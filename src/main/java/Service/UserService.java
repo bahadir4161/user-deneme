@@ -2,19 +2,18 @@ package Service;
 
 
 import Dto.UserDto;
-import Model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface UserService {
-    User save(UserDto user);
+    UserDto save(UserDto user);
 
-    User getById(Long id);
+    UserDto getById(Long id);
 
-    UserDto getAll();
+    List<UserDto> getAllUsers();
 
-    Page<User> getAllPageable(Pageable pageable);
+  //  Page<UserDto> getAllPageable(Pageable pageable);
 
-    User getByUsername(String username);
+    UserDto getByUsername(String username);
 }
 
